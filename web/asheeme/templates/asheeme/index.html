@@ -1,0 +1,101 @@
+{% extends 'asheeme/base.html' %}
+
+{% load static %}
+{% block title %} Ashe&Eme {% endblock %}
+
+{% block content %}
+      
+        <!-- Container1-->
+        <div class="container">
+          <!--inicio carrusel 1-->
+          <div class="row  text-white rounded p-5 mt-4 mb-4" style="background-color: #b8b5ff;">
+            <h1>Bienvenidos a Ashe & Eme</h1>
+          </div>
+  
+          <div id="carousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carousel" data-slide-to="0" class="active"></li>
+              <li data-target="#carousel" data-slide-to="1"></li>
+              
+            </ol>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'asheeme/img/Hombre1.jpg' %}" class="d-block w-100" alt="HOMBRE1">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'asheeme/img/mujer1.jpg' %}" class="d-block w-100" alt="mujer1">
+              </div>
+            </div>
+            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+            
+        </div>
+        <!--fin Carrusel 1-->
+        <br>
+    <div class="container">
+      <div class="text-center">
+        <div class="row">
+          <div class="col">
+            <div class="card-block">
+              <img src="{% static 'asheeme/img/info1.jpg' %}" width="360px"  alt="info1">
+              <div class="card-text1 color font-weight-bold">
+                Nuestra tienda es 100% Online, Así que nunca te podras probar una prenda.
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-block">
+              <img src="{% static 'asheeme/img/info2.jpg' %}" width="360px"alt="info1">
+              <div class="card-text1 color font-weight-bold">
+                Nuestras nuevas colecciones te dejaran sorprendido con su calidad.
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card-block">
+              <img src="{% static 'asheeme/img/info3.jpg' %}" width="360px"alt="info1">
+              <div class="card-text1 color font-weight-bold">
+                Tenemos descuentos de hasta un 2%.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+      <br>
+
+      <div class="container">
+        <center><button class="btn btn-primary" id="myBtn">Ver Clientes</button></center>
+        <br>
+        <div class="row">
+            <div class="col">
+              <div id="output"></div>
+            </div>  
+            <div class="col">
+              <div id="output2"></div>  
+            </div>
+            <div class="col">
+              <div id="output3"></div>  
+            </div>
+        </div>
+      </div>
+    
+    
+      
+    <!--fin container1-->
+
+
+     {% endblock %}
+
+     {% block scripts %}
+         <script src="{% static 'asheeme/js/randomuser.js' %}"></script>
+     {% endblock %}
+     

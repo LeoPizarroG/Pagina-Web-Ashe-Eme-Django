@@ -1,0 +1,112 @@
+{% extends 'asheeme/base.html' %}
+
+{% load static %}
+{% block title %} Contacto {% endblock %}
+
+{% block content %}
+
+<script src="https://kit.fontawesome.com/f9002255ea.js" crossorigin="anonymous"></script>
+    
+    
+  
+
+<!--inicio de contacto-->
+     
+      <div class="container">
+        <div class="row  text-white rounded p-5 mt-4 mb-4" style="background-color: #b8b5ff;">
+          <h1>Contacto</h1>
+        </div> 
+        <form id="form" class="form">
+          <div class="form2-control">
+            <label for="username">Nombre</label>
+            <input type="text" placeholder="Elon" id="pnombre" />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Apellido</label>
+            <input type="text" placeholder="Musk" id="papellido"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Email</label>
+            <input type="email" placeholder="e.musk@tesla.com" id="email" />
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Contraseña</label>
+            <input type="text" placeholder="Contraseña" id="password"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Confirmar contraseña</label>
+            <input type="text" placeholder="Repetir Contraseña" id="password2"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Ciudad</label>
+            <input type="text" placeholder="Santiago" id="ciudad"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Comuna</label>
+            <input type="text" placeholder="Santiago" id="comuna"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Direccion</label>
+            <input type="text" placeholder="Avenida Los Paltos" id="direccion"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Rut</label>
+            <input type="text" placeholder="11111111-k" id="rut"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Numero de Contacto</label>
+            <input type="text" placeholder="9 2122 2324" id="ncontacto"/>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          <div class="form2-control">
+            <label for="username">Comentario</label>
+            <textarea  id="comentario"  onkeyup="count_down(this);" cols="95" rows="3"></textarea>
+            <span class="text-muted pull-right" id="count2">50</span>
+            <i class="fas fa-check-circle"></i>
+            <i class="fas fa-exclamation-circle"></i>
+            <small>Error message</small>
+          </div>
+          
+          <button>Submit</button>
+        </form>
+      </div>
+      
+      
+
+
+  <!-- fin de contactanos bueno -->
+{% endblock %}
+
+{% block scripts %}
+      <script src="{% static 'asheeme/js/script.js' %}"></script>
+{% endblock %}
+  
