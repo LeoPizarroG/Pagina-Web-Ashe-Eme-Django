@@ -11,6 +11,8 @@ urlpatterns = [
     path('contacto', contacto, name='contacto'),
     path('aboutus', aboutus, name='aboutus'),
     path('product-new/', product_new , name='product-new'),
+    path('comentarios/', comentarios , name='comentarios'),
+    path('comentarios-add/', comentarios_add , name='comentarios-add'),
     path('product-update/<idProducto>', product_update, name='product-update'),
     path('product-delete/<idProducto>', product_delete, name='product-delete'),
 ]

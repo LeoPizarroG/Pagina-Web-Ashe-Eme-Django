@@ -1,17 +1,17 @@
 {% extends 'asheeme/base.html' %}
 
 {% load static %}
-{% block title %} Agregar Producto {% endblock %}
+{% block title %} Agregar Comentario {% endblock %}
 
 {% block content %}
 <div class="container">
     <div class="row text-white rounded p-5 mt-4 mb-4" style="background-color: #b8b5ff;">
-        <h1>Registro nuevos productos</h1>
+        <h1>Registro tu comentario</h1>
     </div>
     <div class="row">
         {% if 'ok' in request.GET %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong> <i class="fas fa-upload"></i> </strong>Producto subido correctamente!!
+                <strong> <i class="fas fa-upload"></i> </strong>Comentario subido correctamente!!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endif %}
@@ -25,44 +25,18 @@
         <form action="" method="POST" id="formulario" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-group mb-3">
-                <label class="fw-bold">Código Producto *</label>
+                <label class="fw-bold">Código Comentario *</label>
                 <div class="input-group">
-                    {{form.idProducto}}
+                    {{form.idComentario}}
                 </div>                
-                {{form.idProducto.errors}}
+                {{form.idComentario.errors}}
             </div>
             <div class="form-group mb-3">
-                <label class="fw-bold">Descripción *</label>
+                <label class="fw-bold">Comentario *</label>
                 <div class="input-group">
-                    {{form.descripcion}}
+                    {{form.comentario}}
                 </div>                
-                {{form.descripcion.errors}}
-            </div>
-            <div class="form-group mb-3">
-                <label class="fw-bold">Precio Unitario $ *</label>
-                <div class="input-group">
-                    {{form.precio}}
-                </div>                
-                {{form.precio.errors}}
-            </div>
-            <div class="form-group mb-3">
-                <label class="fw-bold">Marca *</label>
-                <div class="input-group">
-                    {{form.marca}}
-                </div>                
-                {{form.marca.errors}}
-            </div>
-            <div class="form-group mb-3">
-                <label class="fw-bold">Imagen</label>
-                {{form.imagen}}
-            </div>
-            <div class="form-group mb-3">
-                <label class="fw-bold">Tipo</label>
-                <div class="input-group">
-                    {{form.tipo}}
-                </div>                
-                {{form.tipo.errors}}
-            </div>
+                {{form.comentario.errors}}
             <div class="text-center mt-4">
                 <input type="submit" class="btn btn-primary btn-block py-2" id="enviar" value="Enviar">
                 <input type="reset" class="btn btn-danger btn-block py-2" id="limpiar" value="Limpiar">
