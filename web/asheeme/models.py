@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import IntegerField
 
 # Create your models here.
 class Tipo(models.Model):
@@ -29,3 +30,14 @@ class Producto(models.Model):
     def __str__(self):
             return self.descripcion
 
+class Comentario(models.Model):
+    idComentario = models.CharField(primary_key=True, max_length=10,verbose_name='Codigo')
+    comentario = models.CharField(max_length=100, verbose_name='Comentario')
+
+    class Meta:
+        verbose_name = 'comentario'
+        verbose_name_plural = 'comentarios'
+        ordering = ["comentario"]
+
+    def __str__(self) -> str:
+        return self.comentario

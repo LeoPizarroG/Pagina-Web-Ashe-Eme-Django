@@ -11,13 +11,13 @@
     <div class="row">
         {% if 'ok' in request.GET %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Oh yeah!!! </strong>Producto registrado satisfactoriamente
+                <strong> <i class="fas fa-upload"></i> </strong>Producto subido correctamente!!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endif %}
         {% if 'fail' in request.GET %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Ups!!! </strong>En estos momentos no podemos atender a tu solicitud... inténtalo más tarde
+                <strong><i class="far fa-window-close"></i></strong>ID en uso o el programa murio...
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
         {% endif %}
@@ -47,11 +47,11 @@
                 {{form.precio.errors}}
             </div>
             <div class="form-group mb-3">
-                <label class="fw-bold">Cantidad *</label>
+                <label class="fw-bold">Marca *</label>
                 <div class="input-group">
-                    {{form.cantidad}}
+                    {{form.marca}}
                 </div>                
-                {{form.cantidad.errors}}
+                {{form.marca.errors}}
             </div>
             <div class="form-group mb-3">
                 <label class="fw-bold">Imagen</label>
@@ -61,11 +61,11 @@
                 {% endif %}
             </div>
             <div class="form-group mb-3">
-                <label class="fw-bold">Marca *</label>
+                <label class="fw-bold">Tipo *</label>
                 <div class="input-group">
-                    {{form.marca}}
+                    {{form.tipo}}
                 </div>                
-                {{form.marca.errors}}
+                {{form.tipo.errors}}
             </div>
             <div class="text-center mt-4">
                 <input type="submit" class="btn btn-primary btn-block py-2" id="enviar" value="Enviar">

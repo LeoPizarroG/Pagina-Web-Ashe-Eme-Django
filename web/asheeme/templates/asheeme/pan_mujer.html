@@ -11,13 +11,13 @@
         <div class="row">
             {% if 'ok' in request.GET %}
             <div class="alert alert-success alert-dismissible fade show" role="alert">
-                <strong>Oh yeah!!! </strong>Producto actualizado satisfactoriamente
+                <strong> <i class="fas fa-upload"></i> </strong>Producto subido correctamente!!
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endif %}
             {% if 'fail' in request.GET %}
             <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                <strong>Ups!!! </strong>En estos momentos no podemos atender a tu solicitud... inténtalo más tarde
+                <strong><i class="far fa-window-close"></i></strong>ID en uso o el programa murio...
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endif %}
@@ -47,7 +47,7 @@
                                         {% if producto.imagen %}
                                             <img class="img-producto" style="width: 100%;" src="{{producto.imagen.url}}" alt="">
                                         {% else %}
-                                            <img class="img-producto" style="width: 100%;" src="{% static 'asheeme/img/image_not_found.jpg' %}" alt="" width="100px" height="100px">
+                                            <img class="img-producto" style="width: 100%;" src="{% static 'asheeme/img/image_not_found.jpg' %}" alt="" >
                                         {% endif %}   
                                         
                                         </div>
@@ -68,6 +68,8 @@
                                         {{producto.descripcion}}
                                         <br><b id="1"> {{producto.precio}}</b>
                                     </p>
+                                    <a class="btn btn-info" href="{% url 'product-update' producto.idProducto %}"> <i class=" fas fa-user-edit"></i></a>
+                                    <a class="btn btn-danger" href="{% url 'product-delete' producto.idProducto %}"> <i class="fas fa-trash"></i>                                    </a>
                                     
                                     
                                     <div class="card-footer">

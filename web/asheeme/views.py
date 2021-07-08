@@ -1,8 +1,20 @@
 from django.shortcuts import render, redirect, reverse
-from .models import Producto
-from .forms import ProductoForm
+from .models import Producto, Comentario
+from .forms import ProductoForm, ComentarioForm
+from rest_framework import viewsets
+from .serializers import ProductoSerializer
 
 # Create your views here.
+
+class ProductoViewset(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+
+def comentarios(request):
+    comentarios = Comentario.objects.all()
+    return render(request, "asheeme/comentarios.html", {'comentarios':comentarios})
+
 def index(request):
     return render(request, "asheeme/index.html")
 
@@ -32,6 +44,25 @@ def pol_hombre(request):
     #datos = {'productos':productos}
     return render(request, "asheeme/pol_hombre.html",{'productos':productos})
 
+#Creacion de Tablas HTML
+def comentarios_add(request):
+    if request.method == 'POST':
+        form = ComentarioForm(request.POST or None, request.FILES or None)
+        if form.is_valid():
+            idComentario = form.cleaned_data.get("idComentario")
+            comentario = form.cleaned_data.get("comentario")
+            obj = Comentario.objects.create(
+                idComentario=idComentario,
+                comentario=comentario
+            )
+            obj.save()
+            return redirect(reverse('comentarios')+ "?ok")
+        else:
+            return redirect(reverse('comentarios')+ "?fail")
+    else:
+        form = ComentarioForm()
+    return render(request,'asheeme/comentarios-add.html',{'form':form})
+
 def product_new(request):         
     if request.method == 'POST':
         form = ProductoForm(request.POST or None,request.FILES or None)
@@ -59,6 +90,7 @@ def product_new(request):
 
     return render(request,'asheeme/product-new.html',{'form':form})
 
+#Actualizacion de Datos
 
 def product_update(request, idProducto):
     producto = Producto.objects.get(idProducto = idProducto)
@@ -68,14 +100,15 @@ def product_update(request, idProducto):
         form = ProductoForm(request.POST,request.FILES,instance=producto)
         if form.is_valid():
             form.save()                
-            return redirect(reverse('product-list')+ "?ok")
+            return redirect(reverse('index')+ "?ok")
         else:
             return redirect(reverse('product-update')+ idProducto)
 
     return render(request,'asheeme/product-update.html',{'form':form})
 
+#Eliminacion de Datos
 
 def product_delete(request, idProducto):
     producto = Producto.objects.get(idProducto = idProducto)
     producto.delete()
-    return redirect(to="lista_productos")
+    return redirect(to="index")

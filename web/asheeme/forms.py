@@ -1,6 +1,6 @@
 from django import forms
-from django.forms import ModelForm
-from .models import Producto, Tipo
+from django.forms import ModelForm, fields, widgets
+from .models import Producto, Tipo, Comentario
 
 class ProductoForm(forms.ModelForm):
     
@@ -34,4 +34,22 @@ class ProductoForm(forms.ModelForm):
         }
 
 
-        
+class ComentarioForm(forms.ModelForm):
+
+    class Meta:
+        model = Comentario
+
+        fields = [
+            'idComentario',
+            'comentario'
+        ]     
+
+        labels = {
+            'idComentario': 'Codigo Comentario',
+            'comentario': 'Comentario',
+        }
+
+        widgets = {
+            'idComentario':forms.TextInput(attrs={'class':'form-control'}),
+            'comentario':forms.TextInput(attrs={'class':'form-control','type':'text'})
+        }   
